@@ -1,0 +1,64 @@
+## Interface: 16001
+## Title: |cffe8c46aNether|r|cff6fd2f5Bags|r
+## Notes: Your bags, bank and guild bank in two modes: One bag (every slot in one window) or Insight (a sorted, grouped list with columns). Your own groups with rules, search on every character, sell junk, sort, stash, profiles you can share.
+## Author: NetherUI
+## Version: 1.0.0
+## Category: Inventory
+## Group: NetherUI
+## IconTexture: Interface\AddOns\NetherBags\Media\Icon
+## OptionalDeps: NetherUI, NetherUI_Media, NetherSuite
+## SavedVariables: NetherBagsDB
+## SavedVariablesPerCharacter: NetherBagsCharDB
+## X-License: All Rights Reserved
+## X-NetherSuite: 1
+## X-Nether-Family: 1
+## X-Nether-Order: 85
+## X-Nether-Description: Your bags, bank and guild bank in One bag or Insight: groups you define, search everywhere, every character.
+
+# ------------------------------------------------------------------------------------------
+# 16001 = WoW: Forever 1.60.x. Docs/ARCHITECTURE.md maps the modules; Docs/API.md is the
+# plugin API.
+# ------------------------------------------------------------------------------------------
+
+Core\Init.lua
+Core\Locale.lua
+Core\Serialize.lua
+Core\Settings.lua
+Core\Profiles.lua
+Data\Containers.lua
+Data\Items.lua
+Data\Usable.lua
+Data\Store.lua
+Data\Marks.lua
+Data\Rules.lua
+Data\Search.lua
+Data\Groups.lua
+Data\BagRules.lua
+UI\GlyphAtlas.lua
+UI\Skin.lua
+UI\Widgets.lua
+UI\ItemButton.lua
+UI\Common.lua
+UI\Window.lua
+UI\OneBag.lua
+UI\Insight.lua
+UI\Everywhere.lua
+UI\BagMenu.lua
+UI\GuildUI.lua
+Features\GuildBank.lua
+Features\Selling.lua
+Features\Sort.lua
+Features\Stash.lua
+Features\FreeSlot.lua
+Features\Tracked.lua
+Features\Transfer.lua
+UI\Config.lua
+UI\ConfigPages.lua
+UI\ThemeChoice.lua
+UI\Conflicts.lua
+Features\Blizzard.lua
+Features\Tooltip.lua
+Features\Suite.lua
+Features\Slash.lua
+API\Plugin.lua
+Core\Lifecycle.lua

@@ -1,0 +1,14 @@
+<Bindings>
+	<Binding name="NETHERBAGS_TOGGLE" header="NETHERBAGS" category="ADDONS">
+		NetherBags:Toggle("bags")
+	</Binding>
+	<Binding name="NETHERBAGS_BANK" category="ADDONS">
+		NetherBags:Toggle("bank")
+	</Binding>
+	<Binding name="NETHERBAGS_EVERYWHERE" category="ADDONS">
+		NetherBags:Open("bags", "everywhere")
+	</Binding>
+	<Binding name="NETHERBAGS_MODE" category="ADDONS">
+		NetherBags:ToggleMode()
+	</Binding>
+</Bindings>

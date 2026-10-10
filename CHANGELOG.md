@@ -1,5 +1,25 @@
 # NetherBags changelog
 
+## 1.1.0 - Quest item bar
+
+Restart the game fully when updating (new file and key bindings).
+
+- New: the quest item bar. Your usable quest items on a small bar, one click away: items with a
+  "Use:" effect, items a quest tells you to use and items that start a quest. One button per
+  item, with the count of every stack added up.
+- Turn it on with the new quest button in the bags window's title bar, in One bag and Insight
+  (right-click the button for its options), Settings > Quest item bar, or /nbags questbar.
+  Off to start.
+- It starts in the middle of the screen; drag it anywhere with the left mouse button.
+- Right-click the bar to turn the way new items line up: up, left, down, right. The bar grows
+  away from its first item, so it never jumps.
+- Drop any item on the bar to keep it there. Shift + right-click an item to hide it.
+- Key bindings for the first four items (Key Bindings > AddOns > NetherBags).
+- Combat-safe: the game freezes the buttons during combat, so the bar keeps what it had and
+  catches up when combat ends. Counts and cooldowns still update. It never uses anything by
+  itself.
+- The hidden and kept items are part of the profile (export and import).
+
 ## 1.0.0 - First release
 
 - The bags, bank and guild bank in two modes, One bag and Insight, switched at the top right.

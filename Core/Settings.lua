@@ -106,6 +106,15 @@ Settings.DEFAULTS = {
 	["sort.hint"] = true,              -- the Sort button says how many slots a sort would free
 	["sort.mergeAfter"] = true,        -- part stacks merged after the mailbox or a trade
 	["bags.autoRoute"] = true,         -- items that arrive go into the bag the bag menu gives them
+	-- the quest item bar (Features/QuestBar.lua): off until the player turns it on
+	["questbar.on"] = false,
+	["questbar.onlyUsable"] = true,    -- only items with a use (or that start a quest)
+	["questbar.hideEmpty"] = false,   -- an empty bar shows a small drop zone, so it can be found
+	["questbar.lock"] = false,
+	["questbar.keys"] = true,          -- the key bound to "Use quest item n" on the button
+	["questbar.size"] = 36,
+	["questbar.perRow"] = 12,
+	["questbar.grow"] = "right",
 }
 
 Settings.CHOICES = {
@@ -114,6 +123,7 @@ Settings.CHOICES = {
 	["mode.guild"] = { insight = true, onebag = true },
 	["insight.sort"] = { name = true, ilvl = true, value = true, count = true, quality = true },
 	["insight.groupBy"] = { groups = true, bag = true, none = true },
+	["questbar.grow"] = { right = true, left = true, up = true, down = true },
 	-- skins are registered at run time (UI/Skin.lua and plugins): any short id is kept, an unknown one
 	-- falls back to the own look when it is used
 	["look.skin"] = function(v) return type(v) == "string" and v:match("^[%w_%-]+$") and #v <= 40 end,
@@ -127,6 +137,8 @@ Settings.RANGES = {
 	["onebag.slot"] = { 24, 60 },
 	["onebag.spacing"] = { 0, 10 },
 	["insight.rowHeight"] = { 22, 48 },
+	["questbar.size"] = { 24, 60 },
+	["questbar.perRow"] = { 1, 24 },
 }
 
 -- a value fit for key, or nil (used by import and by Set)
@@ -151,7 +163,7 @@ end
 ---------------------------------------------------------------------------------------------
 local function NewProfile()
 	return { settings = {}, groups = { order = {}, custom = {}, off = {} }, layout = { frames = {}, collapsed = {} },
-		locks = {}, junk = {}, keep = {}, assign = {}, junkOnce = {}, tracked = {} }
+		locks = {}, junk = {}, keep = {}, assign = {}, junkOnce = {}, tracked = {}, questHide = {}, questKeep = {} }
 end
 Settings.NewProfile = NewProfile
 

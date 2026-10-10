@@ -1,6 +1,6 @@
 # NetherBags
 
-Version 1.0.0 - Interface 16001 (WoW: Forever 1.60.x) - All Rights Reserved (see LICENSE.txt)
+Version 1.1.0 - Interface 16001 (WoW: Forever 1.60.x) - All Rights Reserved (see LICENSE.txt)
 
 Bringing order to Azeroth... and your inventory.
 
@@ -53,6 +53,7 @@ Every bag size and bag count comes from the game, so bigger bags later just work
   stack of an item, 12 to a mail, from the item menu at a mailbox.
 - **Looted this session**: a group of what you picked up since you logged in.
 - **Tracked items** in the footer (ammo, soul shards, reagents) with a warning when they run low.
+- **Quest item bar**: your usable quest items on a small movable bar, one click away. Turn it on with the quest button in the bags window's title bar (One bag and Insight); right-click it for options. Drop any item on the bar to keep it there, right-click an item to hide it, and bind keys to the first four (Key Bindings > AddOns > NetherBags). Off to start.
 - **Free a slot**: when the bags are full, delete the cheapest junk (you see what it is first).
 - **Your own groups** (Settings > Groups): a name, an icon, a colour, and rules picked from lists
   (binding, item level, quality, type, slot, value, count, locked, junk...), matching ALL or ANY
@@ -91,6 +92,7 @@ Every bag size and bag count comes from the game, so bigger bags later just work
     /nbags bank | guild | currency
     /nbags everywhere [text]    search every character
     /nbags onebag | insight     switch the mode
+    /nbags questbar             the quest item bar on / off
     /nbags sort | config | profile <name> | diag
     /nbags theme                follow NetherUI's theme or keep NetherBags' look
     /nbags conflicts            other bag addons that overlap with NetherBags

@@ -21,7 +21,7 @@ local ADDON, ns = ...
 local NBG = { name = ADDON, modules = {} }
 ns.NBG = NBG
 
-NBG.VERSION = "1.0.0"
+NBG.VERSION = "1.1.0"
 NBG.MEDIA = "Interface\\AddOns\\NetherBags\\Media\\"
 NBG.FONTS = {
 	body = NBG.MEDIA .. "Fonts\\Poppins-Regular.ttf",

@@ -215,7 +215,33 @@ local function MakeWindow(id)
 	f.line:SetTexture(NBG.MEDIA .. "Fade")
 	f.line:SetPoint("TOPLEFT", 10, -40) f.line:SetPoint("TOPRIGHT", -10, -40) f.line:SetHeight(1)
 	Skin:Paint(f.line, "accent", { alpha = 0.6 })
-	f.subtitle:SetPoint("RIGHT", f.pill, "LEFT", -10, 0)
+	-- the quest item bar's switch (bags window, both modes): click turns the bar on / off,
+	-- right-click opens its options (Features/QuestBar.lua)
+	if id == "bags" then
+		f.questBtn = W:IconButton(f, "quest", 22, { role = "textDim", onClick = function(self, btn)
+			local QB = NBG.QuestBar
+			if not QB then return end
+			if btn == "RightButton" then QB:Menu(self) else QB:Toggle() end
+		end })
+		f.questBtn:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		f.questBtn:SetPoint("RIGHT", f.pill, "LEFT", -8, 0)
+		f.questBtn:HookScript("OnEnter", function(self)
+			local QB = NBG.QuestBar
+			if not QB then return end
+			GameTooltip:SetOwner(self, "ANCHOR_TOP")
+			GameTooltip:SetText(L["Quest item bar"], 1, 0.86, 0.55)
+			GameTooltip:AddLine(QB:IsOn() and (L["On: %d item(s) on the bar"]):format(QB:Count()) or L["Off"], 1, 1, 1)
+			GameTooltip:AddLine(L["Your usable quest items on a small bar, one click away."], 0.9, 0.9, 0.9, true)
+			GameTooltip:AddLine(L["Click: turn it on / off"], 0.55, 0.6, 0.7)
+			GameTooltip:AddLine(L["Right-click: its options"], 0.55, 0.6, 0.7)
+			GameTooltip:Show()
+		end)
+		f.questBtn:HookScript("OnLeave", function() GameTooltip:Hide() end)
+		f.questBtn:SetActive(Settings:Get("questbar.on"))
+		f.subtitle:SetPoint("RIGHT", f.questBtn, "LEFT", -8, 0)
+	else
+		f.subtitle:SetPoint("RIGHT", f.pill, "LEFT", -10, 0)
+	end
 	f.subtitle:SetJustifyH("LEFT")
 	-- the content area views draw in
 	f.body = CreateFrame("Frame", nil, f)
@@ -305,9 +331,14 @@ NBG:Register("BAGS_CHANGED", function() Windows:RefreshAll() end)
 NBG:Register("ITEMS_LOADED", function() Containers:Invalidate() Windows:RefreshAll() end)
 NBG:Register("MARKS_CHANGED", function() Windows:RefreshAll() end)
 NBG:Register("GROUPS_CHANGED", function() Windows:RefreshAll() end)
-NBG:Register("PROFILE_CHANGED", function() for _, w in pairs(wins) do if w:IsShown() then w:RestorePosition() end end Windows:RefreshAll() end)
+NBG:Register("PROFILE_CHANGED", function()
+	for _, w in pairs(wins) do if w:IsShown() then w:RestorePosition() end end
+	if wins.bags and wins.bags.questBtn then wins.bags.questBtn:SetActive(Settings:Get("questbar.on")) end
+	Windows:RefreshAll()
+end)
 NBG:Register("SETTING_CHANGED", function(_, key)
 	if key == "look.scale" then for _, w in pairs(wins) do w:ApplyScale() end end
+	if key == "questbar.on" and wins.bags and wins.bags.questBtn then wins.bags.questBtn:SetActive(Settings:Get("questbar.on")) end
 	NBG:Debounce("settingsRefresh", 0.05, function() Windows:RefreshAll() end)
 end)
 NBG:Register("MONEY", function() Windows:RefreshAll(true) end)

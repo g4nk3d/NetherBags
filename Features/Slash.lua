@@ -5,6 +5,7 @@
 	  /nbags                 open / close the bags
 	  /nbags bank | guild | everywhere [text] | currency
 	  /nbags onebag | insight    switch the mode
+	  /nbags questbar        the quest item bar on / off
 	  /nbags sort | config | profile <name> | theme | diag | help ]]
 
 local _, ns = ...
@@ -20,6 +21,7 @@ local function Help()
 		"/nbags everywhere [text]  -  " .. L["search every character"],
 		"/nbags onebag | insight  -  " .. L["switch the mode"],
 		"/nbags sort  -  " .. L["sort the bags"],
+		"/nbags questbar  -  " .. L["the quest item bar on / off (right-click the quest button in the title bar for its options)"],
 		"/nbags config  -  " .. L["settings"],
 		"/nbags profile <name>  -  " .. L["use a profile"],
 		"/nbags theme  -  " .. L["follow NetherUI's theme or keep NetherBags' look"],
@@ -44,6 +46,7 @@ local function Run(msg)
 	elseif cmd == "onebag" or cmd == "insight" then
 		NBG.Settings:Set("mode.bags", cmd)
 		NBG.Windows:Open("bags")
+	elseif cmd == "questbar" or cmd == "quest" or cmd == "qbar" then NBG.QuestBar:Toggle()
 	elseif cmd == "sort" then NBG.Sort:Run("bags")
 	elseif cmd == "config" or cmd == "settings" or cmd == "options" then NBG.Config:Open()
 	elseif cmd == "profile" then

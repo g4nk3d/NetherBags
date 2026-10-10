@@ -21,7 +21,8 @@ UI from the data layer.
                  currencies), GuildUI, Config and ConfigPages (settings), GlyphAtlas,
                  ThemeChoice (the NetherUI theme question), Conflicts (other bag addons),
                  BagMenu (the bag icon's menu: kinds per bag, colour per bag)
-    Features/    GuildBank, Selling, Sort, Stash, FreeSlot, Tracked, Transfer (Move, send all to an
+    Features/    GuildBank, Selling, Sort, Stash, FreeSlot, Tracked, QuestBar (the quest item bar: secure item buttons, frozen in combat, caught up
+                 after), Transfer (Move, send all to an
                  alt), Blizzard (following the game's bag functions with
                  hooksecurefunc, moving the game's frames out of sight), Tooltip, Suite
                  (NetherSuite), Slash (commands, the first-run theme question)

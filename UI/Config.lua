@@ -77,6 +77,16 @@ Config.PAGES = {
 		T("onebag.reverse", L["Fill from the right"]),
 		T("onebag.bagColors", L["Tint each bag's slots with its colour"], L["Pick a bag's colour in the bag menu: the bag icon next to the title."], { "colour", "color", "tint" }),
 	} },
+	{ id = "questbar", label = L["Quest item bar"], glyph = "quest", desc = L["Your usable quest items on a small bar, one click away. Turn it on with the quest button in the bags window's title bar (right-click it for these options too). Drop any item on the bar to keep it there; right-click an item on the bar to hide it."], controls = {
+		T("questbar.on", L["Show the quest item bar"], nil, { "quest", "item bar", "use" }),
+		T("questbar.onlyUsable", L["Only items you can use"], L["Items with a \"Use:\" effect, the ones a quest tells you to use and the ones that start a quest. Off: every quest item, and what a quest in your log asks for."]),
+		T("questbar.hideEmpty", L["Hide the bar when it is empty"]),
+		T("questbar.lock", L["Lock the bar"], L["Unlocked: drag the bar with the left mouse button (by its frame or title) to move it. Right-click the bar to turn the way it grows."], { "move" }),
+		T("questbar.keys", L["Show the key bound to each button"], L["Key Bindings > AddOns > NetherBags: Use quest item 1 to 4."], { "keybind", "binding", "hotkey" }),
+		S("questbar.size", L["Button size"], 24, 60, 1, "%d", { "size" }),
+		S("questbar.perRow", L["Buttons per row"], 1, 24, 1, "%d", { "columns", "row" }),
+		C("questbar.grow", L["Grow"], function() return { { value = "up", label = L["Up"] }, { value = "left", label = L["To the left"] }, { value = "down", label = L["Down"] }, { value = "right", label = L["To the right"] } } end),
+	} },
 	{ id = "groups", label = L["Groups"], glyph = "filter", desc = L["Insight sorts every item into the first group whose rules it matches. Change the order with the arrows."], custom = "Groups" },
 	{ id = "junk", label = L["Junk & selling"], glyph = "junk", desc = L["What counts as junk, and selling it at vendors."], custom = "Junk", controls = {
 		T("junk.autoSell", L["Sell junk at vendors by itself"], L["Locked items are never sold."], { "vendor", "sell", "grey", "gray" }),

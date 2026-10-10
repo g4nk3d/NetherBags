@@ -2,7 +2,7 @@
 ## Title: |cffe8c46aNether|r|cff6fd2f5Bags|r
 ## Notes: Your bags, bank and guild bank in two modes: One bag (every slot in one window) or Insight (a sorted, grouped list with columns). Your own groups with rules, search on every character, sell junk, sort, stash, profiles you can share.
 ## Author: NetherUI
-## Version: 1.0.0
+## Version: 1.1.0
 ## Category: Inventory
 ## Group: NetherUI
 ## IconTexture: Interface\AddOns\NetherBags\Media\Icon
@@ -51,6 +51,7 @@ Features\Sort.lua
 Features\Stash.lua
 Features\FreeSlot.lua
 Features\Tracked.lua
+Features\QuestBar.lua
 Features\Transfer.lua
 UI\Config.lua
 UI\ConfigPages.lua

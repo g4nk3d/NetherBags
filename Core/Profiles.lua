@@ -221,6 +221,8 @@ function Profiles:Export(name, opts)
 		data.junk = NBG.Copy(p.junk)
 		data.keep = NBG.Copy(p.keep)
 		data.tracked = NBG.Copy(p.tracked)
+		data.questHide = NBG.Copy(p.questHide)
+		data.questKeep = NBG.Copy(p.questKeep)
 	end
 	return NBG.Serialize:Pack(data)
 end
@@ -250,6 +252,8 @@ function Profiles:Read(str)
 		local w = tonumber(v.warn)
 		return { warn = (w and w >= 0 and w <= 100000) and math.floor(w) or 0 }
 	end)
+	p.questHide = CleanIDs(data.questHide, yes)
+	p.questKeep = CleanIDs(data.questKeep, yes)
 	local nSettings, nLocks = 0, 0
 	for _ in pairs(p.settings) do nSettings = nSettings + 1 end
 	for _ in pairs(p.locks) do nLocks = nLocks + 1 end

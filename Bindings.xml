@@ -11,4 +11,8 @@
 	<Binding name="NETHERBAGS_MODE" category="ADDONS">
 		NetherBags:ToggleMode()
 	</Binding>
+	<Binding name="CLICK NetherBagsQuestItem1:LeftButton" category="ADDONS"/>
+	<Binding name="CLICK NetherBagsQuestItem2:LeftButton" category="ADDONS"/>
+	<Binding name="CLICK NetherBagsQuestItem3:LeftButton" category="ADDONS"/>
+	<Binding name="CLICK NetherBagsQuestItem4:LeftButton" category="ADDONS"/>
 </Bindings>

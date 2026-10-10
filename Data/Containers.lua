@@ -263,7 +263,11 @@ local function ReadSlot(bag, slot, place)
 	if q then
 		local ok, qi = pcall(q, bag, slot)
 		qi = ok and Open(qi) or nil
-		if qi then e.quest = (qi.isQuestItem or Num(qi.questID)) and true or false e.questActive = qi.isActive and true or false end
+		if qi then
+			e.quest = (qi.isQuestItem or Num(qi.questID)) and true or false
+			e.questActive = qi.isActive and true or false
+			e.questID = Num(qi.questID)   -- an item that starts this quest (the quest item bar)
+		end
 	end
 	local nf = NBG.API("C_NewItems", "IsNewItem")
 	if nf then e.new = NBG.Call(nf, bag, slot) and true or false end
